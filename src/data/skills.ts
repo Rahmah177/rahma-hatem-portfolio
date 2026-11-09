@@ -9,6 +9,8 @@ export const skillGroups = [
 
 export const languages = ['Arabic (Native)', 'English (Advanced)'];
 
+export const processExample = 'On NUZUL, this became role-based research, personas and empathy maps, a site map for four roles, then user flows and module screens.';
+
 export const processSteps = [
   { title: 'Discover', text: 'Learn who the people are and what is getting in their way.' },
   { title: 'Define', text: 'Turn what I learned into one clear problem to solve.' },

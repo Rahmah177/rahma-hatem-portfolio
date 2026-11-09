@@ -9,7 +9,7 @@ export default function ModuleViewer({ project }: { project: Project }) {
   const [index, setIndex] = useState(0);
   const [zoom, setZoom] = useState(false);
   const step = project.steps[index];
-  const nav = 'inline-flex items-center gap-2 border border-[#6a6265] px-3.5 py-2 text-sm font-semibold transition-opacity disabled:opacity-35';
+  const nav = 'inline-flex min-h-11 items-center gap-2 border border-[#6a6265] px-3.5 py-2 text-sm font-semibold transition-opacity disabled:opacity-35';
 
   return (
     <div className="grid gap-4">

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="on-dark bg-black text-[#f1ecee]">
       <div className="wrap flex flex-wrap items-center justify-between gap-4 py-7 text-sm">
         <span className="flex items-center gap-2"><Logo className="h-5 w-5" /> {personalInfo.name}, {personalInfo.title}</span>
-        <span className="flex gap-5">
+        <span className="flex gap-5 [&>a]:inline-flex [&>a]:min-h-11 [&>a]:items-center">
           <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href={personalInfo.behance} target="_blank" rel="noreferrer">Behance</a>
           <a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a>

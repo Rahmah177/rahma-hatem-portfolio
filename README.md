@@ -47,7 +47,7 @@ Project images are in `public/projects/<project name>/`. Replace a file and keep
    - `arches`: three screens in arches, with a logo
 5. Set `kind` to `desktop` for module tabs, or `mobile` for a scrolling walkthrough.
 
-The homepage section and case study page are created automatically.
+The case study page is created automatically. To place the project on the homepage, add its `slug` to `featuredSlugs` or `additionalSlugs` at the bottom of `src/data/projects.ts`.
 
 ## Publish to GitHub
 

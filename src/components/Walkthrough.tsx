@@ -17,7 +17,7 @@ export default function Walkthrough({ project }: { project: Project }) {
     return () => observer.disconnect();
   }, [project.slug]);
 
-  const frameClass = project.frame === 'phone' ? 'phone' : project.frame;
+  const frameClass = project.frame === 'phone' ? 'wt-phone' : project.frame;
 
   return (
     <div className="wt">
@@ -30,12 +30,14 @@ export default function Walkthrough({ project }: { project: Project }) {
           </div>
         </div>
       </div>
+      <div className="wt-list">
+      <div className="wt-rail" aria-hidden="true"><span style={{ height: `${((active + 1) / project.steps.length) * 100}%` }} /></div>
       <ol className="m-0 list-none p-0">
         {project.steps.map((s, i) => (
           <li key={s.src}>
             <div className="wt-step" data-index={i} ref={(el) => { refs.current[i] = el; }}>
-              <button type="button" aria-current={i === active ? 'step' : undefined} style={{ opacity: i === active ? 1 : 0.42 }} onClick={() => refs.current[i]?.scrollIntoView({ block: 'center' })}>
-                <span className="font-display text-lg font-bold text-pist">{String(i + 1).padStart(2, '0')}</span>
+              <button type="button" aria-current={i === active ? 'step' : undefined} className={i === active ? '' : 'dim'} onClick={() => refs.current[i]?.scrollIntoView({ block: 'center' })}>
+                <span className="accent font-display text-lg font-bold">{String(i + 1).padStart(2, '0')}</span>
                 <span className="font-display text-[clamp(1.7rem,3.6vw,3rem)] font-bold leading-[1.05]">{s.title}</span>
                 <span className="max-w-[38ch] text-[1.05rem] opacity-85">{s.text}</span>
               </button>
@@ -43,6 +45,7 @@ export default function Walkthrough({ project }: { project: Project }) {
           </li>
         ))}
       </ol>
+      </div>
     </div>
   );
 }

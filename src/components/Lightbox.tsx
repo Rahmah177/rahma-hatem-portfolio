@@ -21,7 +21,7 @@ export default function Lightbox({ src, alt, onClose }: Props) {
   return (
     <div role="dialog" aria-modal="true" aria-label={alt} className="on-dark fixed inset-0 z-50 overflow-auto bg-black/95 p-4" onClick={onClose}>
       <button ref={closeRef} type="button" aria-label="Close" onClick={onClose} className="fixed right-4 top-4 z-10 bg-pist p-2 text-aub"><X /></button>
-      <img src={src} alt={alt} className="mx-auto block h-auto max-w-full" onClick={(e) => e.stopPropagation()} />
+      <img src={src} alt={alt} className="mx-auto block h-auto w-[max(100%,1100px)] max-w-none lg:w-auto lg:max-w-full" onClick={(e) => e.stopPropagation()} />
     </div>
   );
 }

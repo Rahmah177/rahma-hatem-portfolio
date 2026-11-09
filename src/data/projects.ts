@@ -31,9 +31,14 @@ export type Project = {
   };
   overview: string;
   question?: string;
+  problem?: string;
+  focus?: string[];
+  focusTitle?: string;
   goals?: string[];
   users?: { title: string; text: string }[];
   insights?: string[];
+  insightsTitle?: string;
+  productTheme?: 'sand';
   note?: string;
   steps: Step[];
   architecture?: { layers: { title: string; items: string[] }[]; flow: string[] };
@@ -47,14 +52,16 @@ export const projects: Project[] = [
     kind: 'desktop',
     category: 'Hotel ERP System',
     summary: 'A hotel ERP covering front desk, finance, housekeeping and management.',
+    problem: 'ERP modules make information hard to find during busy hotel shifts.',
     role: 'Product Designer',
     tools: ['Figma', 'UX Research'],
+    date: 'November 2026',
     frame: 'plain',
     stage: {
       layout: 'wall',
       theme: 'black',
       screens: [
-        { src: img('nuzul', 'rack'), alt: 'NUZUL Room Rack screen', caption: 'Front desk: Room Rack' },
+        { src: img('nuzul', 'checkin'), alt: 'NUZUL Quick Check-in screen', caption: 'Front desk: Quick Check-in' },
         { src: img('nuzul', 'clean'), alt: 'NUZUL Cleaning Tasks screen', caption: 'Housekeeping: Cleaning Tasks' },
         { src: img('nuzul', 'revenue'), alt: 'NUZUL Revenue Performance screen', caption: 'Management: Revenue Performance' },
       ],
@@ -69,14 +76,16 @@ export const projects: Project[] = [
       { title: 'Finance', text: 'Guest folios, billing, closing the financial day.' },
       { title: 'General Manager', text: 'Occupancy, revenue, booking sources, VIP guests.' },
     ],
+    insightsTitle: 'What the research showed',
     insights: [
       'Front desk agents switch between reservation, room and payment screens during one guest conversation.',
       'A room can show as clean in the system when it is not actually ready.',
       'Managers need clear numbers and to know what deserves attention first.',
     ],
     steps: [
-      { src: img('nuzul', 'front'), title: 'Front desk', text: 'The day’s arrivals and priorities in one overview.' },
-      { src: img('nuzul', 'rack'), title: 'Room rack', text: 'Rooms across dates and floors, so availability is clear at a glance.' },
+      { src: img('nuzul', 'reservations'), title: 'Reservations', text: 'Arrivals, in-house guests and keys in one list, with the next action on each row.' },
+      { src: img('nuzul', 'checkin'), title: 'Quick check-in', text: 'Three clear steps, with room status shown beside the assignment so staff can confirm a room is clean and inspected.' },
+      { src: img('nuzul', 'checkout'), title: 'Guest check-out', text: 'The full bill, settlement options and key return on one screen.' },
       { src: img('nuzul', 'finance'), title: 'Finance', text: 'Revenue, transactions and open folios together.' },
       { src: img('nuzul', 'clean'), title: 'Housekeeping', text: 'Daily cleaning tasks and who is responsible for them.' },
       { src: img('nuzul', 'revenue'), title: 'Management', text: 'Revenue performance for the general manager.' },
@@ -88,16 +97,18 @@ export const projects: Project[] = [
     kind: 'mobile',
     category: 'Carpooling Platform',
     summary: 'Connects people traveling in similar directions to share car seats and trip costs.',
+    problem: 'Daily commuters choose between costly ride-hailing, expensive solo driving and crowded transfers.',
     role: 'Product Designer',
     tools: ['Figma', 'Design Systems'],
+    date: 'November 2026',
     frame: 'phone',
     stage: {
       layout: 'phones',
       theme: 'pistachio',
       screens: [
+        { src: img('hitchy', 'role'), alt: 'Hitchy role choice screen' },
         { src: img('hitchy', 'plan'), alt: 'Hitchy Plan your ride screen' },
         { src: img('hitchy', 'rides'), alt: 'Hitchy My rides screen' },
-        { src: img('hitchy', 'confirm'), alt: 'Hitchy Booking confirmed screen' },
       ],
     },
     overview:
@@ -105,24 +116,25 @@ export const projects: Project[] = [
     question: 'How can people who already travel the same route share the seats and the cost?',
     users: [
       { title: 'Riders', text: 'Commuters looking for an affordable seat on their daily route.' },
-      { title: 'Hosts', text: 'Car owners who want to share their trip and its fuel cost.' },
+      { title: 'Car owners', text: 'Drivers who want to share their trip and its fuel cost.' },
     ],
+    insightsTitle: 'Key decisions',
     insights: [
-      'The fuel share goes directly from rider to host, separate from the platform fee.',
-      'Launching on a single busy corridor gives riders and hosts a better chance of finding each other.',
+      'The fuel share goes directly from rider to car owner, separate from the platform fee.',
+      'Launching on a single busy corridor gives riders and car owners a better chance of finding each other.',
     ],
     note: 'Potential benefits, such as lower commuting costs and fewer individual car trips, are estimates from the project’s feasibility study and have not been measured in use.',
     steps: [
-      { src: img('hitchy', 'role'), title: 'Choose a role', text: 'Offer seats in your vehicle, or find a ride.' },
+      { src: img('hitchy', 'role'), title: 'Choose a role', text: 'One clear choice at the start: share your vehicle, or find a ride.' },
       { src: img('hitchy', 'plan'), title: 'Plan a ride', text: 'Route, date, time and passengers on one screen.' },
       { src: img('hitchy', 'confirm'), title: 'Booking confirmed', text: 'A clear confirmation with the trip details.' },
       { src: img('hitchy', 'rides'), title: 'My rides', text: 'Upcoming, completed and cancelled trips.' },
-      { src: img('hitchy', 'rate'), title: 'Rate the ride', text: 'Feedback after the trip.' },
+      { src: img('hitchy', 'rate'), title: 'Rate the ride', text: 'After the trip, riders rate the car owner and can report a problem.' },
     ],
     artifacts: [
       { src: img('hitchy', 'brand'), title: 'Brand identity' },
       { src: img('hitchy', 'colors'), title: 'Color palette and variables' },
-      { src: img('hitchy', 'components'), title: 'Component library' },
+      { src: img('hitchy', 'buttons'), title: 'Buttons and inputs' },
     ],
   },
   {
@@ -131,6 +143,9 @@ export const projects: Project[] = [
     kind: 'mobile',
     category: 'Accessible Mobile App · Graduation Project',
     summary: 'Translates sign language into text and voice in real time, using a smart glove.',
+    problem: 'Deaf or hard-of-hearing people and hearing people face a daily communication gap.',
+    focusTitle: 'What the design covers',
+    focus: ['Onboarding and user role selection', 'Authentication flows', 'Smart device connection', 'Live translation as text and voice', 'Profile and settings'],
     role: 'Product Designer',
     tools: ['Figma', 'UX Research', 'User Flow', 'Prototyping', 'Accessibility Design'],
     date: '10/2025 – 02/2026',
@@ -139,16 +154,16 @@ export const projects: Project[] = [
       layout: 'rise',
       theme: 'aubergine',
       screens: [
-        { src: img('signconnect', 'g1'), alt: 'SignConnect Connect your gloves screen' },
-        { src: img('signconnect', 'g2'), alt: 'SignConnect searching for gloves screen' },
-        { src: img('signconnect', 'g3'), alt: 'SignConnect gloves connected screen' },
+        { src: img('signconnect', 'role'), alt: 'SignConnect Choose who you are screen' },
+        { src: img('signconnect', 't1'), alt: 'SignConnect live translation in text mode' },
+        { src: img('signconnect', 't2'), alt: 'SignConnect live translation in voice mode' },
       ],
     },
     overview:
-      'SignConnect aims to bridge the communication gap between deaf or hard-of-hearing people and hearing users. The design focuses on accessibility, clarity and seamless interaction, from choosing a role to connecting the glove and translating live.',
-    question: 'How can a deaf or hard-of-hearing person and a hearing person communicate without a human interpreter?',
+      'SignConnect aims to bridge the communication gap between deaf or hard-of-hearing people and hearing users. The design focuses on accessibility, clarity and seamless interaction, from choosing a role to connecting the glove and translating live. The product was tested with its target users, Deaf and speech-impaired people.',
+    question: 'How can deaf or hard-of-hearing users and hearing users communicate in real time?',
     steps: [
-      { src: img('signconnect', 'role'), title: 'Choose who you are', text: 'The experience adapts for hearing and Deaf or hard-of-hearing users.' },
+      { src: img('signconnect', 'role'), title: 'Choose who you are', text: 'Hearing user, or Deaf or hard-of-hearing user: the app starts by asking.' },
       { src: img('signconnect', 'g1'), title: 'Connect your gloves', text: 'Turn on Bluetooth and put on the gloves.' },
       { src: img('signconnect', 'g2'), title: 'Searching', text: 'A clear waiting state while the app finds the gloves.' },
       { src: img('signconnect', 'g3'), title: 'Connected', text: 'Battery, signal and hand detection confirmed before starting.' },
@@ -166,9 +181,8 @@ export const projects: Project[] = [
       flow: ['Send glove frames, audio or text', 'Model inference for sign or speech', 'Translation result as text or sign sequence', 'Response as text or avatar commands', 'Display text, avatar animation or audio'],
     },
     artifacts: [
-      { src: img('signconnect', 'persona-1'), title: 'Persona' },
-      { src: img('signconnect', 'persona-2'), title: 'Persona' },
-      { src: img('signconnect', 'competitive'), title: 'Competitive analysis' },
+      { src: img('signconnect', 'persona-1'), title: 'Persona: hearing psychiatrist' },
+      { src: img('signconnect', 'persona-2'), title: 'Persona: Deaf graphic designer' },
       { src: img('signconnect', 'storyboard'), title: 'Storyboard' },
     ],
   },
@@ -178,6 +192,8 @@ export const projects: Project[] = [
     kind: 'mobile',
     category: 'Monorail Navigation App',
     summary: 'Guides first-time monorail users through their journey, step by step.',
+    focusTitle: 'What the design covers',
+    focus: ['Station navigation', 'Ticket activation', 'Gate scanning', 'Live ride tracking'],
     role: 'Product Designer',
     tools: ['Figma'],
     date: '03/2026 – 04/2026',
@@ -208,7 +224,10 @@ export const projects: Project[] = [
     name: 'FlowPass',
     kind: 'mobile',
     category: 'Smart Queue Management',
-    summary: 'Smart queue management for clinics and medical labs.',
+    summary: 'Book a place in line remotely, follow the live queue, and arrive just before your turn.',
+    problem: 'Waiting rooms cost people time they could spend elsewhere.',
+    focusTitle: 'What the design covers',
+    focus: ['Booking tickets remotely', 'Live queue status', 'Real-time notifications', 'Arriving just before your turn', 'UX research, personas, journey mapping and wireframing'],
     role: 'Product Designer',
     tools: ['Figma', 'UX Research', 'Journey Mapping', 'Wireframing'],
     date: '04/2026',
@@ -218,18 +237,17 @@ export const projects: Project[] = [
       theme: 'charcoal',
       highlight: { label: 'Now serving', value: '44' },
       screens: [
-        { src: img('flowpass', 'ticket'), alt: 'FlowPass Your Smart Ticket screen' },
+        { src: img('flowpass', 'branch'), alt: 'FlowPass Select a Branch screen' },
         { src: img('flowpass', 'live'), alt: 'FlowPass Live Queue Status screen' },
         { src: img('flowpass', 'turn'), alt: 'FlowPass It’s Your Turn screen' },
       ],
     },
     overview:
-      'FlowPass improves the waiting experience by letting people book tickets remotely, track the live queue, get notified, and arrive just before their turn.',
+      'FlowPass began as a case study on waiting in clinics and medical labs. The app extends the same idea to banks, hospitals and government offices, so people can book remotely, track the queue, get notified, and arrive just before their turn.',
     steps: [
       { src: img('flowpass', 'find'), title: 'Find your service', text: 'Bank, hospital, government office or clinic.' },
       { src: img('flowpass', 'branch'), title: 'Select a branch', text: 'Distance and how busy each branch is.' },
-      { src: img('flowpass', 'ticket'), title: 'Your smart ticket', text: 'Ticket number, estimated wait and arrival time.' },
-      { src: img('flowpass', 'progress'), title: 'Queue progress', text: 'How many people are ahead of you.' },
+      { src: img('flowpass', 'live'), title: 'Live queue status', text: 'The number being served, so nobody has to keep asking.' },
       { src: img('flowpass', 'almost'), title: 'Almost your turn', text: 'A reminder to head back.' },
       { src: img('flowpass', 'turn'), title: 'It’s your turn', text: 'Proceed to your window.' },
     ],
@@ -240,6 +258,8 @@ export const projects: Project[] = [
     kind: 'mobile',
     category: 'Wellness App · IEEE DevDuel',
     summary: 'A meditation and wellness app with live sessions, sleep tools and community features.',
+    focusTitle: 'What the app includes',
+    focus: ['Live meditation sessions', 'Flower meditation', 'Yoga', 'Sleep improvement', 'Nature sounds', 'Community'],
     role: 'Flutter Developer',
     tools: ['Flutter', 'Dart'],
     date: '05/2024 – 06/2024',
@@ -272,6 +292,8 @@ export const projects: Project[] = [
     kind: 'mobile',
     category: 'Bill Splitting App',
     summary: 'Splits bills between friends and organizes who owes what.',
+    focusTitle: 'What the design covers',
+    focus: ['Managing shared expenses', 'Calculating each person’s share', 'Organizing payments'],
     role: 'Product Designer',
     tools: ['Figma'],
     date: '03/2026',
@@ -285,7 +307,7 @@ export const projects: Project[] = [
         total: ['Total', '530 EGP'],
       },
       screens: [
-        { src: img('ala-hesabak', 'settle-hi'), alt: 'Settle the bill screen' },
+        { src: img('ala-hesabak', 'summary'), alt: 'Bill summary screen' },
         { src: img('ala-hesabak', 'done-hi'), alt: 'Settlement completed screen' },
       ],
     },
@@ -296,18 +318,21 @@ export const projects: Project[] = [
       { src: img('ala-hesabak', 'add'), title: 'Add the bill', text: 'Enter each item and its price.' },
       { src: img('ala-hesabak', 'split'), title: 'Split the bill', text: 'Choose how to divide it.' },
       { src: img('ala-hesabak', 'summary'), title: 'Summary', text: 'See what each person owes.' },
-      { src: img('ala-hesabak', 'settle'), title: 'Settle up', text: 'Suggested transfers and payment method.' },
       { src: img('ala-hesabak', 'done'), title: 'Done', text: 'The settlement is complete.' },
     ],
   },
   {
     slug: 'uns',
+    productTheme: 'sand',
     name: 'أُنس',
     rtl: true,
     logo: img('uns', 'logo'),
     kind: 'mobile',
     category: 'Ramadan Potluck Organizer',
     summary: 'Coordinates dishes for Ramadan gatherings with an interactive Table Canvas.',
+    problem: 'At Ramadan potlucks, guests can end up bringing the same dish.',
+    focusTitle: 'What the design covers',
+    focus: ['Interactive Table Canvas', 'Smart dish selection to avoid repetition', 'Countdown to Iftar', 'A calm interface in warm olive, navy and brown tones'],
     role: 'Product Designer',
     tools: ['Figma'],
     date: '02/2026',
@@ -321,7 +346,7 @@ export const projects: Project[] = [
         { src: img('uns', 'count'), alt: 'أُنس Iftar countdown screen' },
       ],
     },
-    overview: 'A mobile app that prevents duplicate dishes at Ramadan potluck dinners. Guests choose dishes visually on a Table Canvas, with a countdown to Iftar and a calm interface in warm, Ramadan-inspired tones.',
+    overview: 'A mobile app that helps prevent duplicate dishes at Ramadan potluck dinners. Guests see which dishes are still missing on a Table Canvas, pick what they will bring, and follow a countdown to Iftar.',
     steps: [
       { src: img('uns', 'table'), title: 'Table Canvas', text: 'See the table and which dishes are missing.' },
       { src: img('uns', 'dish'), title: 'Choose a dish', text: 'Pick what you will bring.' },
@@ -329,3 +354,13 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+// Change these two lists to decide which projects are featured. Every project stays accessible.
+const featuredSlugs = ['nuzul', 'signconnect', 'hitchy', 'flowpass', 'uns'];
+const additionalSlugs = ['monoguide', 'zen-roots', 'ala-hesabak'];
+const bySlug = (slug: string) => projects.find((p) => p.slug === slug)!;
+
+export const featuredProjects = featuredSlugs.map(bySlug);
+export const additionalProjects = additionalSlugs.map(bySlug);
+export const orderedProjects = [...featuredProjects, ...additionalProjects];
+export const isFeatured = (slug: string) => featuredSlugs.includes(slug);

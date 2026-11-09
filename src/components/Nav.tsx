@@ -37,7 +37,7 @@ export default function Nav() {
   return (
     <header className="on-dark sticky top-0 z-40 bg-aub text-blush">
       <div className="wrap flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2.5 font-display text-lg font-bold" aria-label="Rahma Hatem, home">
+        <Link to="/" className="flex min-h-11 items-center gap-2.5 font-display text-lg font-bold" aria-label="Rahma Hatem, home">
           <Logo className="h-7 w-7" />
           Rahma Hatem
         </Link>
@@ -50,7 +50,7 @@ export default function Nav() {
           ))}
           <a href={personalInfo.cv} download className="border border-pist px-3 py-1.5 text-[.92rem] font-semibold text-pist transition-colors hover:bg-pist hover:text-aub">Download CV</a>
         </nav>
-        <button type="button" className="p-2 md:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+        <button type="button" className="flex h-11 w-11 items-center justify-center md:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
           {open ? <X /> : <Menu />}
         </button>
       </div>
