@@ -1,7 +1,7 @@
 // Your projects live here. See README.md for how to add a new one.
 // Put images in public/projects/<slug>/ and reference them with img('<slug>', '<file name>').
 
-const img = (slug: string, file: string) => `/projects/${slug}/${file}.webp`;
+const img = (slug: string, file: string) => `${import.meta.env.BASE_URL}projects/${slug}/${file}.webp`;
 
 export type Screen = { src: string; alt: string; caption?: string };
 export type Step = { src: string; title: string; text: string };

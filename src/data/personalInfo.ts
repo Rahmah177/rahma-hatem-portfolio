@@ -15,9 +15,9 @@ export const personalInfo = {
   behance: 'https://www.behance.net/rahmahatem6',
   github: 'https://github.com/Rahmah177',
   // Replace public/Rahma_Hatem_Fouad_CV.pdf to update your CV.
-  cv: '/Rahma_Hatem_Fouad_CV.pdf',
+  cv: `${import.meta.env.BASE_URL}Rahma_Hatem_Fouad_CV.pdf`,
   // Replace public/images/rahma-hero.webp to change your photo.
-  photo: '/images/rahma-hero.webp',
+  photo: `${import.meta.env.BASE_URL}images/rahma-hero.webp`,
   about: [
     "I'm a Product Designer. I work from user research through flows, interfaces and design systems, looking for the simplest way to solve a real problem for the people using a product.",
     'My background supports that work. I studied Computer Science at Mansoura University and started out building apps in Flutter, so I design with an understanding of how products get built. I also teach programming, and explaining a hard idea simply is close to what a good interface has to do.',

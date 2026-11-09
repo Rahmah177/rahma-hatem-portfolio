@@ -7,7 +7,7 @@ const KEY = 'rh-intro-seen';
 export default function Intro() {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(() => {
-    if (window.location.pathname !== '/') return false;
+    if (window.location.pathname !== import.meta.env.BASE_URL) return false;
     try { return !sessionStorage.getItem(KEY); } catch { return true; }
   });
 
