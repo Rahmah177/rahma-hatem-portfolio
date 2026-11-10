@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import Lightbox from '../components/Lightbox';
 import ModuleViewer from '../components/ModuleViewer';
@@ -40,6 +40,12 @@ export default function CaseStudy() {
           <dl className="m-0">
             {facts.map(([k, v]) => <div key={k} className="grid grid-cols-[5rem_1fr] gap-3 border-t border-line py-3"><dt className="font-semibold text-plum">{k}</dt><dd className="m-0">{v}</dd></div>)}
           </dl>
+          {project.behance && (
+            <a href={project.behance} target="_blank" rel="noreferrer" className="btn mt-6 inline-flex min-h-11 items-center gap-2 bg-aub px-5 py-3 font-semibold text-blush">
+              Full case study on Behance <ArrowUpRight size={18} aria-hidden="true" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          )}
         </Reveal>
       </section>
 

@@ -19,6 +19,8 @@ export type Project = {
   role: string;
   tools: string[];
   date?: string;
+  // Optional link to the full case study on Behance.
+  behance?: string;
   // How screens are shown in the case study: 'phone' adds a phone mockup, 'plain' shows the bare
   // screen, 'own' is for images that already include a device.
   frame: 'phone' | 'plain' | 'own';
@@ -56,6 +58,7 @@ export const projects: Project[] = [
     role: 'Product Designer',
     tools: ['Figma', 'UX Research'],
     date: 'November 2026',
+    behance: 'https://www.behance.net/gallery/258297303/NUZUL-ERP-Hotel-Management-System-UIUX-Case-Study',
     frame: 'plain',
     stage: {
       layout: 'wall',
