@@ -73,3 +73,15 @@ These commands add the site on top of the repository's existing history, without
 4. Vercel gives you a public address ending in `.vercel.app`. You can rename it under **Settings**, then **Domains**.
 
 After that, every push to `main` updates the live site automatically.
+
+## Deploy to GitHub Pages
+
+The live site (https://rahmah177.github.io/rahma-hatem-portfolio/) is served from the `gh-pages` branch.
+
+```bash
+PAGES_BASE=/rahma-hatem-portfolio/ npm run build
+```
+
+After `vite build`, `scripts/prerender-routes.mjs` runs automatically. It writes a real page for every project (`dist/work/<slug>.html`), so each project URL returns **200 OK** with its own title, description, canonical link and social-sharing tags. It also writes `sitemap.xml`, adds the sitemap to `robots.txt`, and creates `404.html`. Then copy everything in `dist/` to the `gh-pages` branch and push.
+
+On Windows Git Bash, run `MSYS_NO_PATHCONV=1 PAGES_BASE=/rahma-hatem-portfolio/ npm run build`, or Git Bash rewrites the path.

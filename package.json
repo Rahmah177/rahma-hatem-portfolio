@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "node scripts/prerender-routes.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "5.1.1",
