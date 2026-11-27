@@ -152,6 +152,7 @@ export const projects: Project[] = [
     role: 'Product Designer',
     tools: ['Figma', 'UX Research', 'User Flow', 'Prototyping', 'Accessibility Design'],
     date: '10/2025 – 02/2026',
+    behance: 'https://www.behance.net/gallery/259091563/SignConnect-Sign-Language-App-UIUX',
     frame: 'phone',
     stage: {
       layout: 'rise',
